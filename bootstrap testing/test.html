@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yes or No Question</title>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            position: relative;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="button" onclick="handleButtonClick('no')">No</button>
+        <button class="button" onclick="handleButtonClick('no')">yes</button>
+    </div>
+
+    <script>
+        function handleButtonClick(answer) {
+            if (answer === 'no') {
+                var button = document.querySelector('.button');
+                var container = document.querySelector('.container');
+                var containerWidth = container.offsetWidth;
+                var containerHeight = container.offsetHeight;
+
+                // Move the button to a random position within the container
+                var newX = Math.floor(Math.random() * (containerWidth - button.offsetWidth));
+                var newY = Math.floor(Math.random() * (containerHeight - button.offsetHeight));
+                button.style.left = newX + 'px';
+                button.style.top = newY + 'px';
+            } else {
+                // Redirect to another page for 'yes'
+                window.location.href = 'another-page.html';
+            }
+        }
+    </script>
+</body>
+</html>
